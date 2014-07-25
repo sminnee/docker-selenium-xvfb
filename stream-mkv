@@ -1,0 +1,3 @@
+#!/bin/bash
+start-selenium &> /dev/null &
+avconv -f x11grab -r 12 -s 1024x768 -i :0.0+0,0 -vcodec libx264 -threads 0 -f matroska pipe:1
