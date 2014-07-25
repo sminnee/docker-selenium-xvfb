@@ -25,9 +25,13 @@ To stream video:
  * Call the 'stream-mkv' command. Matroska content will be streamed to STDOUT, which you can pipe into a file.
  * The resulting mkv file is a bit messy, which we recommend you clean up by transcoding to an mp4 using ffmpeg.
 
+In other words:
+
     # Start the container
     docker run --name test-session -iP -p 14444:4444 -p 15900:5900 sminnee/selenium-xvfb stream-mkv | ffmpeg -format matroska -i pipe:0 -codec copy test.mp4 &
+
     # ... Run your tests here ...
+
     # Shut down and delete your container
     docker rm -f test-session
 
